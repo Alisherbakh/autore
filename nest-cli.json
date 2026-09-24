@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/autore-api/src",
+  "compilerOptions": {
+    "deleteOutDir": true,
+    "webpack": true,
+    "tsConfigPath": "apps/autore-api/tsconfig.app.json"
+  },
+  "monorepo": true,
+  "root": "apps/autore-api",
+  "projects": {
+    "autore-api": {
+      "type": "application",
+      "root": "apps/autore-api",
+      "entryFile": "main",
+      "sourceRoot": "apps/autore-api/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/autore-api/tsconfig.app.json"
+      }
+    },
+    "autore-batch": {
+      "type": "application",
+      "root": "apps/autore-batch",
+      "entryFile": "main",
+      "sourceRoot": "apps/autore-batch/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/autore-batch/tsconfig.app.json"
+      }
+    }
+  }
+}
