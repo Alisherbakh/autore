@@ -13,7 +13,7 @@ Session date: 2026-10-05. Repository: `~/Desktop/autore`, branch `develop`.
 
 | # | Task | Files | Type |
 |---|---|---|---|
-| 1 | Created the agent instructions file (from a Petoria template, adapted to Autore) | `AGENTS.md` | Docs |
+| 1 | Created the agent instructions file (from a Petoria template, adapted to Autore) | `AGENTS.md` (later renamed to `CLAUDE.md`) | Docs |
 | 2 | Created the skills index file (from a Petoria template; later edited by the user to say "Claude skills") | `SKILLS.md` | Docs |
 | 3 | Read-only analysis of the monorepo structure and migration completeness | n/a | Analysis |
 | 4 | Repo-wide search for `nestar` (case-insensitive) | n/a | Audit |

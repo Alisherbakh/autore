@@ -48,7 +48,7 @@ Priority: **P0** = do first (blocks other work), **P1** = this week, **P2** = la
 | Pri | Task |
 |---|---|
 | P0 | Keep `docs/ai/COMPLETED_TASKS.md` and this file updated at the end of each session |
-| P1 | Expand `AGENTS.md`: structure, conventions (field prefixes, guard usage, inquiry shape), commands, and "don't run `npm run lint`, it uses `--fix`" |
+| P1 | Expand `CLAUDE.md`: structure, conventions (field prefixes, guard usage, inquiry shape), commands, and "don't run `npm run lint`, it uses `--fix`" |
 | P1 | Expand `SKILLS.md` with repeatable workflows (add a component module, add an enum, add a filter) |
 | P1 | README: setup, `.env` keys, seed script, ports |
 | P2 | GraphQL API reference generated from the schema |

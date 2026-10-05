@@ -38,7 +38,7 @@ source code. Be precise and technical. Use markdown tables.
 ### 2.1 Session start
 
 ```
-Read AGENTS.md and docs/ai/*.md. Summarize the current migration state in 10
+Read CLAUDE.md and docs/ai/*.md. Summarize the current migration state in 10
 lines and propose today's top 3 tasks from docs/ai/NEXT_STEPS.md. Don't edit
 anything yet.
 ```
