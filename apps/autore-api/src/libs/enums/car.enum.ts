@@ -42,12 +42,14 @@ registerEnumType(CarLocation, {
 
 // mashina brendi
 export enum CarBrand {
+	// koreys brendlari (birinchi)
 	HYUNDAI = 'HYUNDAI',
 	KIA = 'KIA',
 	GENESIS = 'GENESIS',
 	KGM = 'KGM', // KG Mobility (oldingi SsangYong)
-	CHEVROLET = 'CHEVROLET',
-	RENAULT = 'RENAULT',
+	CHEVROLET = 'CHEVROLET', // GM Korea
+	RENAULT = 'RENAULT', // Renault Korea
+	// import brendlar
 	TOYOTA = 'TOYOTA',
 	BMW = 'BMW',
 	MERCEDES = 'MERCEDES',
