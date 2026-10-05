@@ -1,6 +1,6 @@
 # Autore
 
-Car selling platform backend — NestJS + GraphQL + MongoDB monorepo (same structure as nestar).
+Car selling platform backend — NestJS + GraphQL + MongoDB monorepo.
 
 ## Apps
 
