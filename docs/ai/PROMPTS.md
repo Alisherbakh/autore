@@ -38,8 +38,8 @@ source code. Be precise and technical. Use markdown tables.
 ### 2.1 Session start
 
 ```
-Read AGENTS.md and docs/*.md. Summarize the current migration state in 10
-lines and propose today's top 3 tasks from docs/NEXT_STEPS.md. Don't edit
+Read AGENTS.md and docs/ai/*.md. Summarize the current migration state in 10
+lines and propose today's top 3 tasks from docs/ai/NEXT_STEPS.md. Don't edit
 anything yet.
 ```
 
@@ -55,11 +55,11 @@ before and after. Show `git diff --stat`, but don't commit until I approve.
 ### 2.3 Targeted backend fix
 
 ```
-Fix <issue from docs/NEXT_STEPS.md> in autore-api. Keep the GraphQL API
+Fix <issue from docs/ai/NEXT_STEPS.md> in autore-api. Keep the GraphQL API
 unchanged (same operation names, args, return types). Make the minimal
 change, match the existing code style (tabs/spaces, Uzbek comments,
 console.log('Query: ...') convention). Run typecheck after. Update
-docs/COMPLETED_TASKS.md and NEXT_STEPS.md.
+docs/ai/COMPLETED_TASKS.md and NEXT_STEPS.md.
 ```
 
 ### 2.4 New component module (follow the Nestar pattern)
@@ -108,8 +108,8 @@ Replace the scaffold "Hello World!" spec. Run it and report the output.
 ### 2.8 Session close
 
 ```
-Update docs/COMPLETED_TASKS.md (what changed today, files, validation
-results) and docs/NEXT_STEPS.md (re-prioritize). Don't change source code.
+Update docs/ai/COMPLETED_TASKS.md (what changed today, files, validation
+results) and docs/ai/NEXT_STEPS.md (re-prioritize). Don't change source code.
 ```
 
 ## 3. Prompting rules that worked

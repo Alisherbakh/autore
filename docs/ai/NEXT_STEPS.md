@@ -6,7 +6,7 @@ Priority: **P0** = do first (blocks other work), **P1** = this week, **P2** = la
 
 | Pri | Task | Files | Done when |
 |---|---|---|---|
-| P0 | Commit `docs/` (the lint tooling and README rename are already committed in `20acce5`) | `docs/*.md` | Committed on `develop` |
+| P0 | Commit `docs/` (the lint tooling and README rename are already committed in `20acce5`) | `docs/ai/*.md` | Committed on `develop` |
 | P0 | Prettier-only formatting pass: `npx prettier --write "apps/**/*.ts"`. No other edits in this commit | `apps/**` | `prettier/prettier` count = 0; `tsc` still passes |
 | P0 | Make the batch app rank RESERVED cars too: use `$in: [ACTIVE, RESERVED]` in `batchRollback` and `batchTopCars` | `apps/autore-batch/src/batch.service.ts` | Reserved cars get re-ranked |
 | P1 | Escape the regex input in all text searches | `car.service.ts:184`, `board-article.service.ts:98`, `member.service.ts:131,179` | Searching `"("` doesn't throw |
@@ -47,7 +47,7 @@ Priority: **P0** = do first (blocks other work), **P1** = this week, **P2** = la
 
 | Pri | Task |
 |---|---|
-| P0 | Keep `docs/COMPLETED_TASKS.md` and this file updated at the end of each session |
+| P0 | Keep `docs/ai/COMPLETED_TASKS.md` and this file updated at the end of each session |
 | P1 | Expand `AGENTS.md`: structure, conventions (field prefixes, guard usage, inquiry shape), commands, and "don't run `npm run lint`, it uses `--fix`" |
 | P1 | Expand `SKILLS.md` with repeatable workflows (add a component module, add an enum, add a filter) |
 | P1 | README: setup, `.env` keys, seed script, ports |

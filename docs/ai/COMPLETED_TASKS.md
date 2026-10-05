@@ -19,7 +19,7 @@ Session date: 2026-10-05. Repository: `~/Desktop/autore`, branch `develop`.
 | 4 | Repo-wide search for `nestar` (case-insensitive) | n/a | Audit |
 | 5 | Rename layer: removed the last Nestar reference | `README.md:3` ("…monorepo (same structure as nestar)." → "…monorepo.") | Rename |
 | 6 | Fixed lint tooling so lint runs | `package.json`, `package-lock.json` | Dev tooling |
-| 7 | Migration documentation | `docs/*.md` (this folder) | Docs |
+| 7 | Migration documentation | `docs/ai/*.md` (this folder) | Docs |
 
 Tasks 5 and 6 were committed by the user as `20acce5 fix: Modify project name into autore`. `docs/` is not committed yet.
 
