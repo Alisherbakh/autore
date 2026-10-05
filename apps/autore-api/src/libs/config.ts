@@ -44,7 +44,7 @@ export const shapeIntoMongoObjectId = (target: any) => {
 export const lookupMember = {
 	$lookup: {
 		from: 'members',// members kolleksiyasi bilan birlashtirish (JOIN).
-		localField: 'memberId',//joriy kolleksiyadagi (masalan: ko'chmas mulk yoki izoh hujjatidagi) memberId maydonini olish.
+		localField: 'memberId',//joriy kolleksiyadagi (masalan: mashina yoki izoh hujjatidagi) memberId maydonini olish.
 		foreignField: '_id',//uni members kolleksiyasidagi hujjatlarning _id maydoni bilan mos keltirish.
 		as: 'memberData',//topilgan a'zo ma'lumotlarini memberData deb nomlangan yangi massiv (array) maydoniga joylashtirish.
 	},

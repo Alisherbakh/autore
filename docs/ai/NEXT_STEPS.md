@@ -6,7 +6,7 @@ Priority: **P0** = do first (blocks other work), **P1** = this week, **P2** = la
 
 | Pri | Task | Files | Done when |
 |---|---|---|---|
-| P0 | Commit `docs/` (the lint tooling and README rename are already committed in `20acce5`) | `docs/ai/*.md` | Committed on `develop` |
+| P0 | Commit the property → car completion pass (comments, `memberStatus` filter fix, `deletedAt` rename) | `config.ts`, `comment.service.ts`, `member.service.ts`, `member.update.ts`, `docs/ai/*` | Committed on `develop` |
 | P0 | Prettier-only formatting pass: `npx prettier --write "apps/**/*.ts"`. No other edits in this commit | `apps/**` | `prettier/prettier` count = 0; `tsc` still passes |
 | P0 | Make the batch app rank RESERVED cars too: use `$in: [ACTIVE, RESERVED]` in `batchRollback` and `batchTopCars` | `apps/autore-batch/src/batch.service.ts` | Reserved cars get re-ranked |
 | P1 | Escape the regex input in all text searches | `car.service.ts:184`, `board-article.service.ts:98`, `member.service.ts:131,179` | Searching `"("` doesn't throw |

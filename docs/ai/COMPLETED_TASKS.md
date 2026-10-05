@@ -21,7 +21,20 @@ Session date: 2026-10-05. Repository: `~/Desktop/autore`, branch `develop`.
 | 6 | Fixed lint tooling so lint runs | `package.json`, `package-lock.json` | Dev tooling |
 | 7 | Migration documentation | `docs/ai/*.md` (this folder) | Docs |
 
-Tasks 5 and 6 were committed by the user as `20acce5 fix: Modify project name into autore`. `docs/` is not committed yet.
+Tasks 5 and 6 were committed by the user as `20acce5 fix: Modify project name into autore`. `docs/` was committed in `e6bc385` and later moved to `docs/ai/`.
+
+### Property → car completion pass (backend only, `MemberType` unchanged)
+
+Audit method: searched `apps/` and `scripts/` for English and Uzbek real-estate terms; normalized the Nestar backend (property→car, agent→dealer) and diffed every resolver, service, DTO, schema, config and batch file against Autore; checked the Car schema against `car.ts`, `car.input.ts` and `car.update.ts` (all fields and nullability agree).
+
+| # | File | Change | Type |
+|---|---|---|---|
+| 8 | `apps/autore-api/src/libs/config.ts:47` | Comment "ko'chmas mulk" → "mashina" | Comment |
+| 9 | `apps/autore-api/src/components/comment/comment.service.ts:39` | Comment "mulkning" → "mashinaning" | Comment |
+| 10 | `apps/autore-api/src/components/member/member.service.ts:177` | `match.MemberStatus` → `match.memberStatus`. The `getAllMembersByAdmin` status filter had matched a field that doesn't exist, so it returned no members. This regression came from the migration. | Bug fix |
+| 11 | `apps/autore-api/src/libs/dto/member/member.update.ts:55` | `deleteAt` → `deletedAt` (no `@Field`, so no GraphQL change; restores the Nestar name) | Internal rename |
+
+Validation: real-estate term search is clean; `tsc` passes for both apps; `npm run build` passes; ESLint is still 2,351 problems (no new ones).
 
 ### Task 6 details: dev dependencies
 

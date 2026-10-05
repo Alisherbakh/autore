@@ -36,7 +36,7 @@ export class CommentService {
         switch (input.commentGroup) { // comment groupga qarab ajratyabmiz qaysi biri ishlashini
             case CommentGroup.CAR:
                 await this.carService.carStatsEditor({
-                    _id: input.commentRefId, //Izoh yozilgan mulkning aynan o'z ID raqami.
+                    _id: input.commentRefId, //Izoh yozilgan mashinaning aynan o'z ID raqami.
                     targetKey: 'carComments',//Ma'lumotlar bazasidagi oshirilishi kerak bo'lgan maydon (field) nomi.
                     modifier: 1,
                 });
