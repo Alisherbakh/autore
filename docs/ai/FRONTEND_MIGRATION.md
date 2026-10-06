@@ -7,7 +7,7 @@
 | Stack | Next.js (pages router), Apollo Client, MUI, SCSS, next-i18next (`en`, `kr`, `ru`) | Same |
 | Commit | n/a | `83297e6 feat: start client  migration process` (working tree clean) |
 
-**Current state:** the rename is mostly complete. Pages, components, Apollo operations, types and enums already use Car/Dealer names, and every Apollo operation matches an existing backend operation. What's left are SCSS class names, comments, one image, and checking that the app builds and works against the API. **`autore-next` has not been type-checked or built in this session.**
+**Current state:** the rename is mostly complete. Pages, components, Apollo operations, types and enums already use Car/Dealer names, and every Apollo operation matches an existing backend operation. What's left are SCSS class names, comments, one image, and checking that the app builds and works against the API. **Update 2026-10-06:** typecheck and build pass, all 36 operations validate against the live schema, leftovers removed, RESERVED handled in the UI (COMPLETED_TASKS §6).
 
 ---
 
@@ -22,9 +22,9 @@
 | 5 | Rename Apollo operations in `apollo/user/*` and `apollo/admin/*` (table 3) | Done |
 | 6 | Rewrite filters (`car/Filter.tsx`, `homepage/HeaderFilter.tsx`) for brand, fuel, transmission, condition and year/mileage/price ranges | Done |
 | 7 | Update i18n terminology in `public/locales/{en,kr,ru}/common.json` | Done (no property/agent strings left) |
-| 8 | Remove leftovers (section 5) | **To do** |
-| 9 | `npx tsc --noEmit` and `next build` | **To do** |
-| 10 | Smoke test against `autore-api` with seed data (`npm run seed:cars`) | **To do** |
+| 8 | Remove leftovers (section 5) | Done (2026-10-06, see COMPLETED_TASKS §6) |
+| 9 | `yarn tsc --noEmit` and `yarn build` | Done: both pass |
+| 10 | Smoke test against `autore-api` with seed data | API-level done (41/41). Browser walkthrough still to do |
 | 11 | Wire `_admin/cs/*` and the notice pages once the backend Notice/Notification modules exist | Blocked by backend |
 | 12 | Replace the Chat with buyer↔dealer chat once the backend socket is redesigned | Blocked by backend |
 

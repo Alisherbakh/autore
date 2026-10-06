@@ -13,6 +13,7 @@ Priority: **P0** = do first (blocks other work), **P1** = this week, **P2** = la
 | P1 | Return 404 (`NotFoundException`) instead of 500 for missing documents | All `*.service.ts` | `getCar` with an unknown id returns 404 |
 | P1 | Fix the `checkAuth` log label | `member.resolver.ts:46` | n/a |
 | P1 | Add `dotenv` to `devDependencies` | `package.json` | `npm ls dotenv` shows a direct dependency |
+| P1 | Add the `seed:cars` npm script the docs refer to (`node scripts/seed-korean-cars.js`) | `package.json` | `npm run seed:cars` works |
 | P1 | Implement the Notice module (CRUD; admin-only writes) | `components/notice/*`, `libs/dto/notice/*` | `_admin/cs/notice` and `faq` pages can load data |
 | P1 | Implement the Notification module; create notifications on like and comment | `components/notification/*`, `like.service.ts`, `comment.service.ts` | Liking a car notifies its dealer |
 | P1 | Type-safety lint pass: remove `//@ts-ignore` (67) and `no-unsafe-*` (~170) | `apps/**` | ESLint error count < 50 |
@@ -25,12 +26,16 @@ Priority: **P0** = do first (blocks other work), **P1** = this week, **P2** = la
 
 | Pri | Task | Done when |
 |---|---|---|
-| P0 | Run `npx tsc --noEmit` and `yarn build`, and record the results | Build passes or the errors are listed |
+| ~~P0~~ | ~~Run `npx tsc --noEmit` and `yarn build`~~ Done 2026-10-06: both pass | |
 | P0 | Smoke test against the local API with `npm run seed:cars`: home, car list and filters, car detail, dealer list and detail, like, add car (dealer), admin cars | All pages render with seed data |
-| P1 | Check every Apollo selection set against the API schema in the `/graphql` playground | No "Cannot query field" errors |
+| ~~P1~~ | ~~Check every Apollo selection set against the API schema~~ Done 2026-10-06: 36/36 valid | |
 | P1 | Remove leftovers: `filter-rooms`, `room`, `square-year-input` classes (+ SCSS); `apartmentMain.png`; `header3.svg` ("VillA"); "nestar" comments | `grep -riE "nestar\|villa\|apartment\|square\|rooms"` finds only false positives |
 | P1 | Check that `libs/types/car/*` and `libs/enums/*` match the backend DTOs field by field | Diff is empty |
 | P2 | Wire the CS and notice pages once the backend modules exist | n/a |
+| P0 | Browser walkthrough of the 2026-10-06 changes: filters (renamed CSS classes), `/car` and `/dealer` banners, RESERVED tab/badges in My Cars, admin and car cards | Pages look as before; RESERVED visible |
+| P1 | Replace the remaining real-estate banners `banner/header1.svg`, `header2.svg`, `aboutBanner.svg`, `joinBg.svg` with car imagery (only one car photo exists: `video/hero-poster.jpg`) | No house/apartment imagery |
+| P1 | Add images for seeded cars (`uploads/car/seed-*.jpg` in the backend) | Seed cars show photos |
+| ~~P2~~ | ~~Tidy TS-only type gaps~~ Done 2026-10-06 (COMPLETED_TASKS §6, F9) | |
 | P2 | Chat UI for buyer↔dealer once the backend socket is redesigned | n/a |
 
 ## Testing

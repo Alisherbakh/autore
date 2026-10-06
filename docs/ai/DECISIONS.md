@@ -18,6 +18,7 @@ Each entry gives the decision, why it was made, risks, and alternatives that wer
 | D12 | Keep the batch app as a separate process using API schemas | Done |
 | D13 | Keep the socket as a global chat for now | Open |
 | D14 | Leave Notice/Notification unimplemented in the migration | Open |
+| D15 | Frontend enums mirror nestar-next one for one, with only domain renames | Done |
 
 ---
 
@@ -105,3 +106,10 @@ Each entry gives the decision, why it was made, risks, and alternatives that wer
 - **Why:** Nestar never implemented them either; the schemas exist only.
 - **Risks:** The frontend `_admin/cs/*` and notice pages have no backend.
 - **Alternatives:** Implement the modules next (planned as the first backend feature).
+
+### D15: Frontend enums mirror nestar-next
+
+- **Why:** The frontend should stay a mechanical rename of `nestar-next`. Every enum file and value is kept; only domain names change (`PROPERTY` → `CAR`, `AGENT` → `DEALER`, `Property*` → `Car*`). `CommentGroup.COMMENT` stays on the frontend only, exactly as in Nestar.
+- **Car-specific on purpose:** board categories `REVIEW` / `TIPS` replace `RECOMMEND` / `HUMOR` (same four slots); `CarType` values are car body types; `CarStatus.RESERVED`, `CarBrand`, `CarFuelType`, `CarTransmission` and `CarCondition` are kept because the car filters, add-car form and backend schema depend on them.
+- **Risks:** None. `COMMENT` is never sent to the API.
+- **Alternatives:** Revert to RECOMMEND/HUMOR or strip the extra car enums. Both rejected by the user on 2026-10-06.

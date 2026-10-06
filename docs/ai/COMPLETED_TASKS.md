@@ -101,3 +101,54 @@ No runtime dependency changed. No file under `apps/` or `scripts/` was modified 
 | The seed script requires `dotenv`, which is only present as a transitive dependency of `@nestjs/config` | `scripts/seed-korean-cars.js` |
 | `carVin` unique index conflicts when a soft-deleted car is relisted | `schemas/Car.model.ts` |
 | Notice/Notification have schemas only | `schemas/Notice.model.ts`, `schemas/Notification.model.ts` |
+
+## 6. Frontend migration session (`~/Desktop/autore-next`)
+
+Session date: 2026-10-06. Repository: `~/Desktop/autore-next`, branch `modification`. Changes are uncommitted.
+
+### Validation (before any edits)
+
+| Check | Command | Result |
+|---|---|---|
+| Typecheck | `yarn tsc --noEmit` | Pass |
+| Build | `yarn build` | Pass (21 routes) |
+| Operation contract | All 36 gql documents in `apollo/` validated against the live `autore-api` introspection schema (graphql-js `validate`) | 0 errors |
+| Enums | `libs/enums/*` compared with schema enums and backend source | All match. `CommentGroup.COMMENT` exists only in the frontend and is unused |
+| Types | `libs/types/*` compared field by field with the schema | No runtime mismatches: every mutation sends only fields the backend accepts. TS-only differences listed in NEXT_STEPS |
+
+### Seed data
+
+`seed:cars` is **not** in the backend `package.json`, so the seed was run as `node scripts/seed-korean-cars.js` against `MONGO_DEV`: 4 dealers (`seoul_motors`, `busan_auto`, `incheon_ev`, `daegu_motors`, password `autore123`) and 32 cars. `uploads/car/seed-*.jpg` are missing, so seeded car images are broken.
+
+### API smoke test (frontend gql documents, page inputs)
+
+41/41 pass: car list with every sort (createdAt, carViews, carRank, carLikes, carPrice, carYear, carMileage) and every filter (brand, type, location, fuel, transmission, condition, year, mileage, price, credit option, text); RESERVED cars in public lists; car detail; dealer list and detail; comments; community FREE/REVIEW/NEWS/TIPS; member cars, followers and followings; dealer login; my cars; favorites; recently visited; like on/off; `updateCar` ACTIVE → RESERVED → ACTIVE (state restored).
+
+### Changes
+
+| # | Area | Files | Change |
+|---|---|---|---|
+| F1 | Leftover CSS classes | `homepage/HeaderFilter.tsx`, `car/Filter.tsx`, `scss/pc/main.scss`, `scss/pc/theme/v01.scss`, `scss/pc/car/car.scss` | `filter-rooms` → `filter-brands`, `room` → `fuel-chip`, `square-year-input` → `range-input` (component and SCSS renamed together) |
+| F2 | NESTAR-branded / real-estate images | `layout/LayoutBasic.tsx`, `pages/car/detail.tsx`, `car/CarCard.tsx`, `mypage/Article.tsx` | `/car` and `/dealer` banners (`banner/cars.png`, `banner/dealers.webp` had "NESTAR" in the image), the car detail fallback (`car/bigImage.png`, a living room) and the CarCard fallback (`banner/header1.svg`, a house) now use `/video/hero-poster.jpg` |
+| F3 | Unused assets removed | `public/img/apartmentMain.png`, `car/floorPlan.png`, `car/bigImage.png`, `banner/header3.svg`, `banner/cars.png`, `banner/dealers.webp` | Deleted (no references left) |
+| F4 | Comments | `mypage/AddNewCar.tsx`, `scss/pc/theme/v01-pages.scss` | "nestar" wording removed. `grep -ri nestar` over `libs pages scss apollo public/locales` is clean |
+| F5 | WebSocket fallback | `apollo/client.ts` | `ws://127.0.0.1:3007` → `3009` (matches `PORT_API`) |
+| F6 | RESERVED: My Cars | `mypage/MyCars.tsx`, `mypage/CarCard.tsx` | New "Reserved" tab; status menu offers Reserved/Sold for ACTIVE and Active/Sold for RESERVED. Reserved cars were previously invisible to their dealer |
+| F7 | RESERVED: admin | `pages/_admin/cars/index.tsx`, `admin/cars/CarList.tsx` | New "Reserved" tab; RESERVED rows get a badge (`badge block`) and status menu, and link to the detail page. Previously the status cell was empty |
+| F8 | RESERVED: public | `car/CarCard.tsx`, `pages/car/detail.tsx` | Orange "RESERVED" badge on cards and next to the price on the detail page |
+
+Validation after the changes: `yarn tsc --noEmit` passes; `yarn build` passes. No browser smoke test was run (UI changes are unverified visually).
+
+#### Type tidy-ups (F9)
+
+| File | Change |
+|---|---|
+| `libs/types/car/car.input.ts` | Removed `CarInput.memberId` (the backend sets it from the token); car search type `CISearch` → `CarISearch` (schema name; no longer shares a name with the comment search type) |
+| `libs/types/car/car.update.ts` | Removed `soldAt`, `deletedAt` (not in the backend `CarUpdate`) |
+| `libs/types/comment/comment.input.ts` | Removed `CommentInput.memberId` |
+| `libs/types/board-article/board-article.input.ts` | Removed `BoardArticleInput.memberId`; `articleImage` optional; `BAISearch.articleCategory` optional and `memberId` added (matches the schema) |
+| `pages/community/index.tsx` | `TabContext value` falls back to `'FREE'` (needed now that `articleCategory` is optional) |
+
+`yarn tsc --noEmit` passes, `yarn build` passes, 36/36 operations still validate. Left as-is on purpose: output-type nullability (`metaCounter`, `TotalCounter.total`, some `Member` / `BoardArticle` fields) and frontend-only helper fields (`Comment.meLiked`, `Member.memberPassword`, `MemberUpdate.deletedAt`). These never reach the backend, and tightening them would add null checks across many pages.
+
+`CommentGroup.COMMENT` was briefly removed in F9 (not in the backend schema, unused) and then **restored** for parity with `nestar-next`, where it is also frontend-only (see DECISIONS D15).
