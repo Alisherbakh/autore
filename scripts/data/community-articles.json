@@ -1,0 +1,167 @@
+{
+	"_note": "NEWS posts contain only verified facts (sources in docs/ai/COMPLETED_TASKS.md). FREE / REVIEW / TIPS are demo opinion posts written for the personas in demo-members.json and seed-korean-cars.js.",
+	"articles": [
+		{
+			"author": "seoul_motors",
+			"category": "NEWS",
+			"title": "Seoul Mobility Show 2025 wrapped up at KINTEX",
+			"image": { "file": "community-sms-2025.jpg", "from": "download:sms" },
+			"views": 1240,
+			"daysAgo": 26,
+			"content": "<p>The 15th Seoul Mobility Show ran from April 3 to April 13, 2025, across KINTEX Halls 1–5 in Goyang.</p><p>451 companies and institutions from 12 countries took part. Beyond new cars, the halls covered ships, urban air mobility, autonomous driving, AI and robotics.</p><p>Our team spent two days there. The Hyundai N stand with the RN24 rolling lab (pictured) drew the biggest crowd we saw.</p>"
+		},
+		{
+			"author": "hanriver_car",
+			"category": "NEWS",
+			"title": "Ioniq 9: Hyundai's first three-row electric SUV",
+			"image": { "file": "community-ioniq9.jpg", "from": "download:ioniq9" },
+			"views": 1105,
+			"daysAgo": 22,
+			"content": "<p>The Ioniq 9 is the first three-row, seven-seat electric SUV in Hyundai's line-up. It sits on the E-GMP platform shared with the Ioniq 5 and Ioniq 6.</p><p>At 5,060 mm long it is slightly bigger than the Kia EV9. Second-row swivel seats let the second and third rows face each other while parked.</p><p>Hyundai put it on sale in Korea in the first half of 2025. Ask us about test drives at our Yeongdeungpo showroom.</p>"
+		},
+		{
+			"author": "busan_kia",
+			"category": "NEWS",
+			"title": "Kia Tasman, Kia's first pickup, on show in Seoul",
+			"image": { "file": "community-tasman.jpg", "from": "download:tasman" },
+			"views": 980,
+			"daysAgo": 19,
+			"content": "<p>The Tasman is Kia's first-ever pickup. It was on display at the Seoul Mobility Show from April 3, alongside the outdoor-themed Tasman WKNDR concept.</p><p>Production started in February 2025, with Korea, Australia and the Middle East as its main markets. Engines are a 2.5-litre turbo petrol and a 2.2-litre turbo diesel.</p><p>We have already had several Busan customers ask about it for camping and fishing trips.</p>"
+		},
+		{
+			"author": "busan_auto",
+			"category": "NEWS",
+			"title": "Busan's motor show is now the Busan International Mobility Show",
+			"image": { "file": "community-bimos.jpg", "from": "download:busan2018" },
+			"views": 870,
+			"daysAgo": 15,
+			"content": "<p>The show first opened in 2001 as the very first exhibition at BEXCO and is held every two years. It was called the Busan International Motor Show until 2024, when it was renamed to cover mobility more broadly.</p><p>The 2024 edition ran from June 27 to July 7. The 2026 show marks its 25th anniversary under the slogan “Moving Tomorrow”.</p><p>Photo: the main hall at the 2018 show.</p>"
+		},
+		{
+			"author": "green_ev",
+			"category": "NEWS",
+			"title": "Casper Electric drew a crowd at BIMOS 2024",
+			"image": { "file": "community-casper-electric.jpg", "from": "download:bimos" },
+			"views": 760,
+			"daysAgo": 12,
+			"content": "<p>Hyundai brought the Casper Electric to the Busan International Mobility Show 2024, with a small driving-experience track inside the hall.</p><p>Since then it is one of the most asked-about cars at our Incheon store. Small EVs are a good fit for city commuting and tight apartment parking.</p>"
+		},
+		{
+			"author": "incheon_ev",
+			"category": "NEWS",
+			"title": "Superrace 2026: eight rounds on three circuits",
+			"image": { "file": "community-inje-speedium.jpg", "from": "download:inje" },
+			"views": 690,
+			"daysAgo": 9,
+			"content": "<p>The 2026 Superrace Championship uses three circuits: Everland Speedway (Gyeonggi), Korea International Circuit (South Jeolla) and Inje Speedium (Gangwon).</p><ul><li>Everland Speedway: rounds 1–2 (April), 5 (August) and 7–8 (October)</li><li>Korea International Circuit: rounds 3 (May) and 6 (September)</li><li>Inje Speedium: round 4 (July)</li></ul><p>The top Super 6000 class races identical stock cars with Toyota Supra silhouette bodies and 6.2-litre V8 engines. Photo: Inje Speedium at night.</p>"
+		},
+		{
+			"author": "jiyoon_kim",
+			"category": "FREE",
+			"title": "My first EV road trip: Seoul to Gangneung",
+			"image": { "file": "community-ioniq5-trip.jpg", "from": "car:demo-ioniq5-2.jpg" },
+			"views": 640,
+			"daysAgo": 7,
+			"content": "<p>I borrowed a friend's Ioniq 5 to see if an EV would work for me before I buy one.</p><p>One charging stop at a highway rest area was enough, and we had coffee while it charged. The only stress was finding a free charger on the way back on Sunday evening.</p><p>Verdict: I am now seriously looking at EVs. Any tips for a first-time EV buyer?</p>"
+		},
+		{
+			"author": "minho_park",
+			"category": "FREE",
+			"title": "Palisade or Carnival for a family of four?",
+			"image": { "file": "community-carnival-family.jpg", "from": "car:demo-carnival-2.jpg" },
+			"views": 590,
+			"daysAgo": 6,
+			"content": "<p>Two kids, a big dog and lots of weekend trips to my parents in Daejeon.</p><p>The Carnival's sliding doors are great in tight parking garages, but my wife prefers how the Palisade drives. Has anyone owned both? What did you end up choosing and why?</p>"
+		},
+		{
+			"author": "sora_lee",
+			"category": "FREE",
+			"title": "Favourite east-coast drive this autumn",
+			"image": { "file": "community-east-coast.jpg", "from": "car:demo-santafe-2.jpg" },
+			"views": 420,
+			"daysAgo": 4,
+			"content": "<p>Took the coastal road north from Busan last weekend. The views around Pohang and Yeongdeok were amazing, and the roads were quiet early in the morning.</p><p>Share your favourite driving routes, I am collecting ideas for the next trip!</p>"
+		},
+		{
+			"author": "daniel_choi",
+			"category": "FREE",
+			"title": "Anyone else hunting for a used K8?",
+			"image": { "file": "community-k8-hunt.jpg", "from": "car:demo-k8-2.jpg" },
+			"views": 310,
+			"daysAgo": 2,
+			"content": "<p>I have been watching listings for a 2022–2023 K8 for a month. Good ones seem to go within days.</p><p>Is it worth waiting, or should I widen the search to the Grandeur?</p>"
+		},
+		{
+			"author": "daniel_choi",
+			"category": "REVIEW",
+			"title": "Genesis G80 test drive: quiet and confident",
+			"image": { "file": "community-g80-review.jpg", "from": "car:demo-g80-2.jpg" },
+			"views": 520,
+			"daysAgo": 14,
+			"content": "<p>Drove a used G80 2.5T for about an hour, city and highway.</p><p><strong>Liked:</strong> very quiet cabin, comfortable seats, smooth power on the highway.</p><p><strong>Not so much:</strong> it feels big in narrow Seoul streets, and the infotainment took a while to learn.</p><p>Overall it feels more expensive than it is on the used market.</p>"
+		},
+		{
+			"author": "jiyoon_kim",
+			"category": "REVIEW",
+			"title": "Hyundai Casper: three months of city driving",
+			"image": { "file": "community-casper-review.jpg", "from": "car:demo-casper-2.jpg" },
+			"views": 480,
+			"daysAgo": 11,
+			"content": "<p>I rented a Casper for three months while my old car was being sold.</p><p>Parking is the best part: it fits almost anywhere in Mapo. The seats fold flat, which surprised me. On the highway it is noisier than a bigger car, which is fair for its size.</p><p>Great second car or first car for the city.</p>"
+		},
+		{
+			"author": "minho_park",
+			"category": "REVIEW",
+			"title": "Kia Sorento hybrid as a family car",
+			"image": { "file": "community-sorento-review.jpg", "from": "car:demo-sorento-2.jpg" },
+			"views": 450,
+			"daysAgo": 8,
+			"content": "<p>We test drove a Sorento hybrid with the whole family, kids' seats included.</p><p>The third row is fine for kids on short trips, not for adults. The boot is still usable with all seats up. It was smooth and quiet in town.</p><p>On our shortlist next to the Palisade and Carnival.</p>"
+		},
+		{
+			"author": "sora_lee",
+			"category": "REVIEW",
+			"title": "Kia EV6 over a long weekend",
+			"image": { "file": "community-ev6-review.jpg", "from": "car:demo-ev6-2.jpg" },
+			"views": 380,
+			"daysAgo": 3,
+			"content": "<p>Spent a long weekend with an EV6 on the coast roads.</p><p>It is fun to drive and charges quickly at fast chargers. Rear visibility could be better, and the ride is firm on rough roads.</p><p>Would I buy one? Probably, if I can charge at home.</p>"
+		},
+		{
+			"author": "gangnam_auto",
+			"category": "TIPS",
+			"title": "7 things to check on a used car before you sign",
+			"image": { "file": "community-used-car-check.jpg", "from": "car:demo-g70-2.jpg" },
+			"views": 610,
+			"daysAgo": 18,
+			"content": "<ol><li>Service history: ask for every record, not just the last one.</li><li>Accident history report.</li><li>Tyre wear: uneven wear can point to alignment problems.</li><li>Panel gaps and paint colour differences between panels.</li><li>All electronics: windows, seats, cameras, sensors.</li><li>A cold start, so you hear the engine before it warms up.</li><li>The VIN on the car matches the documents.</li></ol><p>At our showroom we are happy to go through this list with you.</p>"
+		},
+		{
+			"author": "green_ev",
+			"category": "TIPS",
+			"title": "How to read a used EV battery report",
+			"image": { "file": "community-ev-battery.jpg", "from": "car:demo-niro-2.jpg" },
+			"views": 540,
+			"daysAgo": 13,
+			"content": "<p>The battery is the most expensive part of an EV, so always ask for a battery health report.</p><ul><li><strong>State of health (SOH):</strong> the battery's capacity compared with when it was new.</li><li><strong>Charging history:</strong> how often it was fast-charged versus charged slowly.</li><li><strong>Warranty:</strong> check how much battery warranty is left and whether it transfers to you.</li></ul><p>Every EV we sell comes with this report.</p>"
+		},
+		{
+			"author": "hanriver_car",
+			"category": "TIPS",
+			"title": "Test-drive checklist: 20 minutes that save you money",
+			"image": { "file": "community-test-drive.jpg", "from": "car:demo-sonata-2.jpg" },
+			"views": 470,
+			"daysAgo": 10,
+			"content": "<p>Plan your test drive so it covers:</p><ul><li>Slow city traffic and a few speed bumps.</li><li>A short highway stretch to listen for wind and tyre noise.</li><li>Hard braking in a safe place.</li><li>Parking, to check visibility and cameras.</li></ul><p>Bring the person who will drive the car most. Their opinion matters more than the spec sheet.</p>"
+		},
+		{
+			"author": "busan_kia",
+			"category": "TIPS",
+			"title": "Getting your car ready for winter",
+			"image": { "file": "community-winter-prep.jpg", "from": "car:demo-sportage-2.jpg" },
+			"views": 400,
+			"daysAgo": 5,
+			"content": "<ul><li>Check tyre tread and pressure, and consider winter tyres if you drive in Gangwon.</li><li>Test the 12V battery before the first cold morning.</li><li>Use winter washer fluid.</li><li>Keep a scraper, gloves and a phone charger in the car.</li></ul><p>Our Haeundae service desk can run a quick winter check before a long trip.</p>"
+		}
+	]
+}

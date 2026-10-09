@@ -5,7 +5,7 @@
  *   npm run seed:cars -- --reset → faqat shu skript qo'shgan e'lonlarni o'chiradi
  *
  * Ma'lumotlar: scripts/data/korean-cars.json
- * Rasmlar:     uploads/car/seed-*.jpg (namunaviy rasmlar — keyin haqiqiy fotolar bilan almashtiring)
+ * Rasmlar:     uploads/car/seed-<slug>.jpg + seed-<slug>-2..5.jpg (Wikimedia Commons), uploads/member/seed-dealer-<key>.jpg
  * Baza:        .env → NODE_ENV=production bo'lsa MONGO_PROD, aks holda MONGO_DEV (API bilan bir xil)
  */
 require('dotenv').config();
@@ -30,8 +30,17 @@ const slug = (c) =>
 // takrorlanadigan "tasodifiy" son — har safar bir xil natija
 const pseudo = (i, min, max) => min + ((i * 7919 + 104729) % 997) % (max - min + 1);
 
+// e'lon rasmlari: seed-<slug>.jpg (asosiy) + seed-<slug>-2..5.jpg (bor bo'lsa — galereya uchun)
+const carImages = (c) =>
+	[`seed-${slug(c)}.jpg`, ...[2, 3, 4, 5].map((n) => `seed-${slug(c)}-${n}.jpg`)]
+		.filter((f, idx) => idx === 0 || fs.existsSync(path.join(__dirname, '..', 'uploads', 'car', f)))
+		.map((f) => `uploads/car/${f}`);
+
+// diler rasmi: uploads/member/seed-dealer-<key>.jpg (bor bo'lsa), aks holda null
+const dealerImage = (d) =>
+	fs.existsSync(path.join(__dirname, '..', 'uploads', 'member', `seed-dealer-${d.key}.jpg`)) ? `uploads/member/seed-dealer-${d.key}.jpg` : null;
+
 const toDoc = (c, i, dealerId) => {
-	const image = `uploads/car/seed-${slug(c)}.jpg`;
 	return {
 		carType: c.type,
 		carStatus: i % 11 === 5 ? 'RESERVED' : 'ACTIVE',
@@ -53,7 +62,7 @@ const toDoc = (c, i, dealerId) => {
 		carViews: pseudo(i, 40, 980),
 		carLikes: pseudo(i + 3, 2, 140),
 		carRank: pseudo(i + 7, 0, 60),
-		carImages: [image],
+		carImages: carImages(c),
 		carDesc: `${c.year} ${c.title}, ${c.km.toLocaleString('en-US')} km, ${c.color}. One owner, full service history, no accidents. Viewing in ${c.addr}.`,
 		carBarter: !!c.barter,
 		carCredit: !!c.credit,
@@ -85,7 +94,13 @@ async function main() {
 			const res = await members.findOneAndUpdate(
 				{ memberNick: d.memberNick },
 				{
-					$set: { memberFullName: d.memberFullName, memberAddress: d.memberAddress, memberDesc: d.memberDesc },
+					$set: {
+						memberFullName: d.memberFullName,
+						memberAddress: d.memberAddress,
+						memberDesc: d.memberDesc,
+						// diler rasmi (bor bo'lsa): uploads/member/seed-dealer-<key>.jpg
+						...(dealerImage(d) ? { memberImage: dealerImage(d) } : {}),
+					},
 					$setOnInsert: {
 						memberNick: d.memberNick,
 						memberPhone: d.memberPhone,
@@ -93,7 +108,7 @@ async function main() {
 						memberType: 'DEALER',
 						memberStatus: 'ACTIVE',
 						memberAuthType: 'PHONE',
-						memberImage: '',
+						...(dealerImage(d) ? {} : { memberImage: '' }), // GraphQL'da memberImage majburiy
 						memberArticles: 0,
 						memberFollowers: 0,
 						memberFollowings: 0,

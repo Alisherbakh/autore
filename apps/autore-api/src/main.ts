@@ -18,7 +18,7 @@ async function bootstrap() {  // loyiha ildizi ekan bootstrap function
   app.use('/uploads', express.static('./uploads'));
   // upload folderni tashqi olamga ochiqlayabmiz
   app.useWebSocketAdapter(new WsAdapter(app));
-  await app.listen(process.env.PORT_API ?? 3000);  // calling port manzil
+  await app.listen(process.env.PORT_API ?? 3009);  // calling port manzil
 }
 bootstrap();
  

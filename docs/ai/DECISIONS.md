@@ -19,6 +19,7 @@ Each entry gives the decision, why it was made, risks, and alternatives that wer
 | D13 | Keep the socket as a global chat for now | Open |
 | D14 | Leave Notice/Notification unimplemented in the migration | Open |
 | D15 | Frontend enums mirror nestar-next one for one, with only domain renames | Done |
+| D16 | Homepage hero: Nestar's 3D gallery (Commons car photos) replaces the video hero | Done |
 
 ---
 
@@ -113,3 +114,10 @@ Each entry gives the decision, why it was made, risks, and alternatives that wer
 - **Car-specific on purpose:** board categories `REVIEW` / `TIPS` replace `RECOMMEND` / `HUMOR` (same four slots); `CarType` values are car body types; `CarStatus.RESERVED`, `CarBrand`, `CarFuelType`, `CarTransmission` and `CarCondition` are kept because the car filters, add-car form and backend schema depend on them.
 - **Risks:** None. `COMMENT` is never sent to the API.
 - **Alternatives:** Revert to RECOMMEND/HUMOR or strip the extra car enums. Both rejected by the user on 2026-10-06.
+
+### D16: Nestar's 3D gallery replaces the video hero
+
+- **Why:** The user wanted the Nestar homepage feature back with car imagery. The gallery sits above the search like in Nestar, and the video hero was removed (user's choice over keeping both).
+- **Images:** real famous cars from Wikimedia Commons (CC BY-SA 4.0) instead of AI-generated ones. This requires attribution: see `public/img/fiber/CREDITS.md` and the footer link.
+- **Risks:** `three` adds about 200 kB to the homepage first load. Mouse wheel/trackpad only (no drag), same as Nestar. Not shown on mobile (the mobile layout has no hero).
+- **Alternatives:** gallery below the video hero; AI-generated images.

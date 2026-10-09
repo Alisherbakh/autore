@@ -163,4 +163,7 @@ const CarSchema = new Schema(
 	{ timestamps: true, collection: 'cars' },
 );
 
+// nestar'dagi kabi: bitta dealer aynan bir xil mashinani (marka + model + yil + probeg + narx) ikki marta joylay olmaydi
+CarSchema.index({ memberId: 1, carBrand: 1, carModel: 1, carYear: 1, carMileage: 1, carPrice: 1 }, { unique: true });
+
 export default CarSchema;

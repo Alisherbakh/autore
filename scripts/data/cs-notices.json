@@ -1,0 +1,294 @@
+{
+ "notices": [
+  {
+   "title": "Register to use and get discounts",
+   "content": "Register to use and get discounts"
+  },
+  {
+   "title": "It's absolutely free to upload and trade cars",
+   "content": "It's absolutely free to upload and trade cars"
+  }
+ ],
+ "faqs": [
+  {
+   "title": "Are the cars displayed on the site reliable?",
+   "content": "of course we only have verified cars"
+  },
+  {
+   "title": "What types of cars do you offer?",
+   "content": "We offer sedans, SUVs, hatchbacks, coupes, convertibles, wagons, vans and pickups — both new and used."
+  },
+  {
+   "title": "How can I search for cars on your website?",
+   "content": "Simply use our search bar to enter location, brand, price range, year, mileage, fuel type and car type."
+  },
+  {
+   "title": "Do you provide assistance for first-time car buyers?",
+   "content": "Yes, we guide you through the process and help find suitable financing."
+  },
+  {
+   "title": "What should I consider when buying a car?",
+   "content": "Location, condition, size, amenities, and future development plans."
+  },
+  {
+   "title": "How long does the car-buying process typically take?",
+   "content": "Usually 3 to 6 days, depending on various factors."
+  },
+  {
+   "title": "What happens if I encounter issues with the car after purchase?",
+   "content": "We offer post-purchase support to address any concerns promptly."
+  },
+  {
+   "title": "Do you offer cars in specific cities?",
+   "content": "Yes, we have listings in Seoul, Busan, Incheon, Daegu and other cities."
+  },
+  {
+   "title": "Can I sell my car through your website?",
+   "content": "Absolutely, we provide services for selling cars as well."
+  },
+  {
+   "title": "What if I need help understanding legal aspects of car purchase?",
+   "content": "Our team can provide basic guidance and recommend legal professionals if needed."
+  },
+  {
+   "title": "How can I make the payment?",
+   "content": "you make the payment through a dealer!"
+  },
+  {
+   "title": "Are there any additional fees for using your services?",
+   "content": "No, our services are free for buyers. Sellers pay a commission upon successful sale."
+  },
+  {
+   "title": "Is there an option for installment payments?",
+   "content": "Yes, we offer installment payment plans for certain cars. Please inquire for more details."
+  },
+  {
+   "title": "Is my payment information secure on your website?",
+   "content": "Yes, we use industry-standard encryption technology to ensure the security of your payment information."
+  },
+  {
+   "title": "Can I make payments online through your website?",
+   "content": "Yes, you can securely make payments online through our website's payment portal."
+  },
+  {
+   "title": "What happens if there's an issue with my payment?",
+   "content": "If you encounter any issues with your payment, please contact our support team for assistance."
+  },
+  {
+   "title": "Do you offer refunds for payments made?",
+   "content": "Refund policies vary depending on the circumstances. Please refer to our refund policy or contact us for more information."
+  },
+  {
+   "title": "Are there any discounts or incentives for early payments?",
+   "content": "We occasionally offer discounts or incentives for early payments. Check our promotions or contact us for current offers."
+  },
+  {
+   "title": "How long does it take for payments to be processed?",
+   "content": "Payment processing times vary depending on the payment method used. Typically, credit/debit card payments are processed instantly"
+  },
+  {
+   "title": "Are there penalties for late payments?",
+   "content": "Late payment penalties may apply depending on the terms of your agreement. Please refer to your contract or contact us for details."
+  },
+  {
+   "title": "What should buyers pay attention to?",
+   "content": "Buyers should check and decide whether the car they want to buy is actually suitable!"
+  },
+  {
+   "title": "How can I determine if a car is within my budget?",
+   "content": "Calculate your budget by considering your income, down payment, and potential mortgage payments. Our dealers can assist you within your budget."
+  },
+  {
+   "title": "What documents do I need to provide when purchasing a car?",
+   "content": "You'll typically need identification, proof of income, bank statements, and any necessary loan documentation. Our team will guide you through."
+  },
+  {
+   "title": "What factors should I consider when choosing a used car?",
+   "content": "Check the year, mileage, accident and service history, fuel type, and have the car inspected before buying."
+  },
+  {
+   "title": "Can I negotiate the price of a car?",
+   "content": "Yes, you can negotiate the price of a car. Our dealers will assist you in making competitive offers and negotiating terms with the seller."
+  },
+  {
+   "title": "What are some red flags to watch out for when viewing cars?",
+   "content": "Watch out for signs of structural damage, water damage, mold, outdated systems, and undesirable neighborhood conditions."
+  },
+  {
+   "title": "Do you provide assistance with car inspections?",
+   "content": "Yes, we can recommend reputable inspectors and accompany you during car inspections to identify any potential issues."
+  },
+  {
+   "title": "How long does it typically take to find the right car?",
+   "content": "The timeframe varies depending on your preferences and market conditions. Our dealers will work diligently to find the right car as quickly as possible."
+  },
+  {
+   "title": "What are the advantages of buying a car through a dealer?",
+   "content": "Real estate dealers provide expertise, negotiation skills, and guidance throughout the buying process, ultimately saving you time and hassle."
+  },
+  {
+   "title": "What happens if I change my mind about a car after making an offer?",
+   "content": "Depending on the terms of the offer and the stage of the transaction, you may have options to withdraw your offer."
+  },
+  {
+   "title": "What do I need to do if I want to become a dealer?",
+   "content": "If you really decide to become an dealer, you should read our terms and conditions and contact the admin!"
+  },
+  {
+   "title": "What qualifications do I need to become a car dealer?",
+   "content": "Complete pre-licensing course, pass licensing exam, meet state requirements."
+  },
+  {
+   "title": "How do I find clients as a new car dealer?",
+   "content": "Build network, use online/offline marketing, join reputable brokerage."
+  },
+  {
+   "title": "What are some effective marketing strategies for selling cars?",
+   "content": "Use social media, online platforms, networking events, and direct mail."
+  },
+  {
+   "title": "How do I handle negotiations with buyers and sellers?",
+   "content": "Develop strong negotiation skills, understand market trends, represent client interests."
+  },
+  {
+   "title": "What should I do to stay updated with market trends and changes?",
+   "content": "Attend industry events, follow automotive news, participate in training."
+  },
+  {
+   "title": "How do I handle difficult clients or situations?",
+   "content": "Approach with professionalism, empathy, and patience. Listen actively, address issues collaboratively."
+  },
+  {
+   "title": "What tools and technologies should I utilize as a car dealer?",
+   "content": "Use CRM software, virtual tours, digital marketing tools, and mobile apps."
+  },
+  {
+   "title": "How do I ensure compliance with car sales laws and regulations?",
+   "content": "Stay updated with laws, attend education courses, consult legal professionals."
+  },
+  {
+   "title": "What strategies can I use to grow my car sales business?",
+   "content": "Build relationships, provide exceptional service, seek referrals, and continuously improve skills."
+  },
+  {
+   "title": "Do you have a membership service on your site?",
+   "content": "membership service is not available on our site yet!"
+  },
+  {
+   "title": "What are the benefits of becoming a member on your website?",
+   "content": "We currently do not offer membership benefits, but stay tuned for updates on any future offerings."
+  },
+  {
+   "title": "Is there a fee associated with becoming a member?",
+   "content": "As membership services are not available, there are no associated fees at this time."
+  },
+  {
+   "title": "Will membership provide access to exclusive content or features?",
+   "content": "We don't currently have membership-exclusive content or features."
+  },
+  {
+   "title": "How can I sign up for a membership on your site?",
+   "content": "As of now, we do not have a sign-up process for memberships."
+  },
+  {
+   "title": "Do members receive discounts on car listings or services?",
+   "content": "Membership discounts are not part of our current offerings."
+  },
+  {
+   "title": "Are there plans to introduce a membership program in the future?",
+   "content": "While we can't confirm any plans at this time, we're always exploring ways to enhance our services for users."
+  },
+  {
+   "title": "What kind of content or benefits can members expect if a membership program is introduced?",
+   "content": "We're evaluating potential benefits and features, but specifics are not available yet."
+  },
+  {
+   "title": "Do you offer a premium membership option on your platform?",
+   "content": "Currently, we do not provide a premium membership option."
+  },
+  {
+   "title": "Will membership grant access to exclusive deals or discounts?",
+   "content": "Membership perks, including deals or discounts, are not available at this time."
+  },
+  {
+   "title": "What should I do if there is abusive or criminal behavior in the community section?",
+   "content": "If you encounter this situation, please report it immediately or contact the admin!"
+  },
+  {
+   "title": "How can I participate in the community section of your website?",
+   "content": "Create an account and engage in discussions."
+  },
+  {
+   "title": "Are there guidelines for posting?",
+   "content": "Yes, follow our community guidelines."
+  },
+  {
+   "title": "What should I do if I encounter spam or irrelevant posts?",
+   "content": "Report them to the admin."
+  },
+  {
+   "title": "Can I connect with other members outside of the community section?",
+   "content": "Currently, no."
+  },
+  {
+   "title": "Can I share personal experiences or recommendations?",
+   "content": "Yes, if relevant you can share personal experiences and recommendations."
+  },
+  {
+   "title": "How can I ensure privacy?",
+   "content": "Avoid sharing sensitive information."
+  },
+  {
+   "title": "How can I contribute positively?",
+   "content": "Respect others and engage constructively."
+  },
+  {
+   "title": "What if I notice misinformation?",
+   "content": "Provide correct information or report to the admin."
+  },
+  {
+   "title": "Are there moderators?",
+   "content": "Yes, we have moderators."
+  },
+  {
+   "title": "Who should I contact if I want to buy your site?",
+   "content": "We have no plans to sell the site at this time!"
+  },
+  {
+   "title": "Can I advertise my services on your website?",
+   "content": "We currently do not offer advertising opportunities on our site."
+  },
+  {
+   "title": "Are there sponsorship opportunities available on your platform?",
+   "content": "At this time, we do not have sponsorship opportunities."
+  },
+  {
+   "title": "Can I contribute guest posts or articles to your website?",
+   "content": "We're not accepting guest posts or articles at the moment."
+  },
+  {
+   "title": "Is there a referral program for recommending your website to others?",
+   "content": "We don't have a referral program in place currently."
+  },
+  {
+   "title": "Do you offer affiliate partnerships for promoting your services?",
+   "content": "Affiliate partnerships are not available at this time."
+  },
+  {
+   "title": "Can I purchase merchandise related to your website?",
+   "content": "We don't have merchandise available for purchase."
+  },
+  {
+   "title": "Are there any job openings or opportunities to work with your team?",
+   "content": "Currently, we do not have any job openings or opportunities available."
+  },
+  {
+   "title": "Do you host events or webinars related to cars?",
+   "content": "We're not hosting events or webinars at this time."
+  },
+  {
+   "title": "Can I request custom features or functionalities for your website?",
+   "content": "We're not accepting requests for custom features or functionalities."
+  }
+ ]
+}
