@@ -419,3 +419,141 @@ New seed `scripts/seed-community.js` + `scripts/data/community-articles.json`.
 - An article detail page renders HTML content (ordered list).
 
 **Known:** the homepage `CommunityCard` still labels News cards "Free Board" (an existing UI text bug, now visible with real data).
+
+## Mobile live chat (`~/Desktop/autore-next`, 2026-10-21)
+
+The existing WebSocket chat (`libs/components/Chat.tsx`) was rendered only in the desktop branch of the layouts, and its styles existed only under `#pc-wrap`. It is now available on mobile too. Backend and desktop behavior are unchanged.
+
+**Changes**
+- `LayoutHome.tsx`, `LayoutFull.tsx`, `LayoutBasic.tsx`: `<Chat />` added to the `device == 'mobile'` branch (between `#main` and `#footer`). `LayoutAdmin` unchanged.
+- `scss/mobile/chat.scss` (new, imported in `scss/mobile/main.scss` after `mobileV2.scss`): styles scoped to `#mobile-wrap .chatting`.
+  - Button: bottom-right, above the tab bar (`z-index: 1150`).
+  - On `/car/detail` (`.raised`), the button sits above `.cd-mbar`.
+  - Frame: full screen (`100dvh`, `z-index: 1200`), slides up from the bottom, uses safe-area insets, and has a 16px input to prevent iOS zoom.
+- `Chat.tsx`:
+  - Adds a mobile-only close button (`.chat-close`) to the chat header.
+  - Locks body scroll while the chat is open on mobile.
+  - Adds the `raised` class on `/car/detail`.
+  - Bug fix: new messages no longer mutate state (`setMessagesList((prev) => [...prev, newMessage])`, effect deps `[socket]`), and `onmessage` is not attached until the socket exists.
+
+**Verified**
+- `tsc --noEmit` passes.
+- `yarn build` passes (72 pages).
+- Playwright iPhone 13 emulation:
+  - The button sits above the tab bar.
+  - The chat opens full screen.
+  - Messages between a mobile client and a desktop client appear on both.
+  - Body scroll is locked and unlocked correctly.
+  - The `/car/detail` button sits above `.cd-mbar`.
+  - No page errors.
+- The desktop chat looks the same as before.
+
+## AI assistant, phase 1 (2026-10-21)
+
+The mobile chat now has two tabs: **AI assistant** (new) and **Live chat** (the existing WebSocket chat). The assistant turns a plain-language request into a car search. The AI never invents cars: it only produces filters, and the results come from the existing `CarService.getCars`.
+
+**How it works:** one Gemini `generateContent` call (REST through the existing `axios` dependency, so no new package) returns JSON in this shape:
+
+```
+{ intent, reply, filters, sort, direction, chips }
+```
+
+The backend validates the filters against the enums and ranges, builds a `CarsInquiry`, and runs `getCars`.
+
+### Backend (`apps/autore-api`)
+
+**New `components/ai/` module:**
+- `ai.module.ts` imports `AuthModule` and `CarModule`. It is registered in `components.module.ts`.
+- `ai.resolver.ts` exposes `askAssistant(input: AiAskInput): AiAnswer`, a mutation guarded by `WithoutGuard`, so guests can use it too.
+
+**`ai.service.ts`:**
+- Configuration:
+  - Model: `gemini-3.5-flash-lite`, which can be overridden with `GEMINI_MODEL`.
+  - Key: `GEMINI_API_KEY`. It is sent only in the `x-goog-api-key` header and is never logged.
+- Filter sanitising:
+  - Only enum values are kept.
+  - Numbers are clamped to `0..2,000,000,000` (the GraphQL Int limit).
+  - Reversed ranges are swapped.
+  - The keyword is regex-escaped and capped at 40 characters.
+- Limits: 30 questions per day per member, or per IP for guests (taken from `x-forwarded-for` when present). Usage is counted in memory.
+- Fallback: a localized `fallback: true` answer (en/kr/ru) is returned when the key is missing, the daily limit is reached, Gemini fails (429/timeout), the JSON is invalid, or the database search fails.
+- Privacy: only the user's text and chat history are sent to Gemini, never member data.
+- `searchInput` is a `CarsInquiry` with `Direction` as `"ASC"`/`"DESC"`, ready to use as `/car?input=...`.
+
+**DTOs:** `libs/dto/ai/ai.input.ts` and `libs/dto/ai/ai.ts`.
+- `message` is 1–500 characters.
+- `history` holds at most 8 items, each with role `user` or `assistant` and 1–600 characters of text.
+- `lang` is `en`, `kr` or `ru`.
+
+### Frontend (`~/Desktop/autore-next`)
+
+**New files:**
+- `apollo/user/mutation.ts`: `ASK_ASSISTANT`.
+- `libs/types/ai/ai.ts`.
+- `libs/components/AiAssistant.tsx`:
+  - Shows starter chips, typing dots, a horizontal row of car cards (links to `/car/detail`), and "See all (N)" (opens `/car?input=...`).
+  - Shows follow-up chips and an "AI answers can be inaccurate" note.
+  - Keeps the conversation in `sessionStorage`, so it survives page changes.
+  - Pressing Enter while a Korean IME is composing does not send the message.
+
+**Changes:**
+- `Chat.tsx`: on mobile, the header has tabs (AI / Live, with the online count). The AI pane stays mounted when hidden, so its history is kept. Desktop markup is unchanged.
+- `scss/mobile/chat.scss`: styles for the tabs and the AI pane.
+- `public/locales/{en,kr,ru}/common.json`: 12 new keys. Existing keys are untouched.
+
+### Verified
+- Backend: `tsc` (api + batch) and `nest build` pass.
+- 30/30 service unit checks pass, covering:
+  - Enum filtering and deduplication.
+  - Ranges and caps.
+  - Regex escaping.
+  - Chips.
+  - The chat intent, where no database query runs.
+  - Zero results (localized message).
+  - Invalid JSON, 429 and database errors.
+  - History role mapping.
+  - The daily limit (the 31st request is blocked without calling the AI).
+- GraphQL e2e with the real resolver, `ValidationPipe` and `WithoutGuard`:
+  - Guests and members both work.
+  - Invalid input (empty or long message, bad `lang`, bad role, history over 8 items) is rejected.
+  - `searchInput` is accepted by the real `getCars` schema.
+- Frontend: `tsc` and `yarn build` pass.
+- Playwright on an iPhone 13, against the real AI module, the seed cars and a mocked Gemini:
+  - Chip → typing → cars → refine ("cheaper" sends the history).
+  - Live tab message, and switching back keeps the AI history.
+  - "See all" opens `/car` with the filters and closes the chat.
+  - The history is restored on the new page, and a car card opens the detail page.
+  - Korean UI and replies.
+  - Desktop is unchanged.
+  - No page errors.
+
+### Not verified
+A live Gemini call. Neither test environment can reach `generativelanguage.googleapis.com`, so it has to be tested on the Mac.
+
+### AI assistant on PC (2026-10-21)
+
+The AI assistant and Live chat tabs are now shown on desktop as well as mobile.
+
+**Changes**
+- `Chat.tsx`:
+  - The tabs and the AI pane render on every device.
+  - The old "Online Chat" title and `RippleBadge` header was removed. The online count now appears on the Live tab.
+  - The ✕ close button and the body scroll lock remain mobile only.
+- Styles:
+  - The tab and AI pane styles moved out of `scss/mobile/chat.scss` into the new shared file `scss/chat-ai.scss`.
+  - That file uses the selector `#mobile-wrap, #pc-wrap .chatting .chat-frame` and is imported at the end of `scss/app.scss`.
+- PC chat frame:
+  - Size is 400×600, with `max-height: calc(100vh - 180px)`.
+  - When closed it sits at `right: -440px`, so no part of it shows.
+  - The selector is `body #pc-wrap#pc-wrap ...`, which is needed to beat the same-specificity V01 rule that loads later.
+
+**Verified**
+- `tsc` and `yarn build` pass.
+- Playwright at 1440×900 and 1280×720:
+  - The closed frame is fully off-screen.
+  - The open frame stays inside the viewport.
+  - The AI chip returns 6 cars and "See all (9)".
+  - Live chat messages work.
+  - "See all" opens `/car` and closes the chat.
+- The iPhone 13 regression check passes.
+- No page errors.
